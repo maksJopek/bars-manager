@@ -3,7 +3,7 @@ const app = express();
 const formidable = require('formidable');
 const path = require("path");
 const hbs = require('express-handlebars');
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 let FILES = []
 let ID = 1;
 
