@@ -1,0 +1,1 @@
+find . -type f | rg -v "node_modules|upload|png|svg|lock|hbs" | entr -r node server.js

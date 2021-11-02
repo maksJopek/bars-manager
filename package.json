@@ -1,0 +1,17 @@
+{
+  "name": "Filemanager.js",
+  "version": "1.0.0",
+  "description": "Filemanager.js",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "formidable": "^1.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Maks Jopek <maks@jopek.eu>",
+  "license": "AGPL-3.0-or-later"
+}
