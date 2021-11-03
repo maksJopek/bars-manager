@@ -1,8 +1,10 @@
 const express = require("express");
+const fs = require('fs');
 const app = express();
 const formidable = require('formidable');
 const path = require("path");
 const hbs = require('express-handlebars');
+const uploadDir = __dirname + '/static/upload/';
 const PORT = process.env.PORT || 8000;
 let FILES = []
 let ID = 1;
@@ -20,7 +22,7 @@ app.get("/upload", (req, res) => {
 })
 app.post("/upload", (req, res) => {
   let form = formidable({});
-  form.uploadDir = __dirname + '/static/upload/'
+  form.uploadDir = uploadDir;
   form.keepExtensions = true
   form.multiples = true
   form.parse(req, (_, fields, files) => {
@@ -80,6 +82,9 @@ function getFileImg(type) {
   return "/default.svg"
 }
 
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 app.listen(PORT, () => {
   console.log("Server listening on port " + PORT);
 })
